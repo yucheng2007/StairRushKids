@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stair Rush Kids</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <h1>Stair Rush Kids</h1>
+        <p>原創簡約風的小朋友下樓梯挑戰</p>
+      </header>
+
+      <section class="game-shell" aria-label="Stair Rush Kids 遊戲區">
+        <canvas id="gameCanvas" aria-label="遊戲畫面"></canvas>
+
+        <div class="hud">
+          <div class="hud-item"><span>分數</span><strong id="scoreValue">0</strong></div>
+          <div class="hud-item"><span>最高分</span><strong id="bestValue">0</strong></div>
+          <div class="hud-item"><span>生命</span><strong id="livesValue">3</strong></div>
+          <button id="pauseBtn" class="btn" type="button">暫停</button>
+          <button id="restartBtn" class="btn" type="button">重新開始</button>
+        </div>
+
+        <div id="overlay" class="overlay" role="status" aria-live="polite">
+          <div class="panel" id="panelStart">
+            <h2>準備好了嗎？</h2>
+            <p>踩著平台往下前進，避開危險平台！</p>
+            <button id="startBtn" class="btn btn-primary" type="button">開始遊戲</button>
+          </div>
+
+          <div class="panel hidden" id="panelPaused">
+            <h2>已暫停</h2>
+            <p>按下繼續回到遊戲</p>
+            <button id="resumeBtn" class="btn btn-primary" type="button">繼續</button>
+          </div>
+
+          <div class="panel hidden" id="panelGameOver">
+            <h2>遊戲結束</h2>
+            <p id="finalScore">你的分數：0</p>
+            <button id="retryBtn" class="btn btn-primary" type="button">再玩一次</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>

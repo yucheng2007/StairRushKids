@@ -1,0 +1,135 @@
+:root {
+  --bg: #f7fbff;
+  --ink: #264653;
+  --soft: #ffffffcc;
+  --accent: #ff8fab;
+  --accent-2: #8ecae6;
+  --good: #7bd389;
+  --warn: #ffb703;
+  --danger: #ef476f;
+  --shadow: 0 10px 25px rgba(38, 70, 83, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 20%, #e6f4ff, var(--bg) 60%);
+}
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+}
+
+.app-header p {
+  margin: 6px 0 0;
+}
+
+.game-shell {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--soft);
+  box-shadow: var(--shadow);
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: min(72vh, 680px);
+  background: linear-gradient(180deg, #dff4ff, #f8fbff);
+}
+
+.hud {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(72px, 1fr)) auto auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.hud-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  background: var(--accent-2);
+  color: #0a3a4a;
+  font-weight: 700;
+  padding: 10px 14px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(20, 35, 45, 0.24);
+  padding: 16px;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.panel {
+  width: min(92%, 360px);
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.panel.hidden {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .hud {
+    grid-template-columns: repeat(3, minmax(72px, 1fr));
+  }
+
+  .hud .btn {
+    grid-column: span 3;
+  }
+}
